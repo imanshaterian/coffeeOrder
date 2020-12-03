@@ -51,6 +51,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:onClick="decrement"
                 android:text="-"
                 android:textSize="20sp" />
 
@@ -63,7 +64,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:onClick="decrement"
-                android:text="0"
+                android:text="1"
                 android:textSize="25sp" />
 
             <Button
@@ -99,9 +100,11 @@
             android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/whippedCream"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onCheckboxClicked"
                 android:text="Whipped Cream"
                 android:textSize="15sp" />
 
@@ -112,9 +115,11 @@
                 android:background="?android:attr/textColorPrimary" />
 
             <CheckBox
+                android:id="@+id/chocolate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="onCheckboxClicked"
                 android:text="Chocolate"
                 android:textSize="15sp" />
 

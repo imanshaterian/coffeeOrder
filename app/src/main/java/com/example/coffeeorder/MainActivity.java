@@ -4,15 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     //variables:
-    int quantity = 0;
-//    String name = "";
-//    boolean chocolate = false;
-//    boolean whippedCream = false;
+    int quantity = 1;
+    int price = 5;
+    String name = "";
+    boolean chocolate = false;
+    boolean whippedCream = false;
 
 
     @Override
@@ -22,18 +25,51 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void increment(View v) {
-        quantity++;
+        if (quantity < 10)
+            quantity++;
+        else
+            Toast.makeText(getApplicationContext(), "SORRY NO MORE COFFEE FOR YOU :(", Toast.LENGTH_SHORT).show();
         displayQuantity(quantity);
     }
 
     public void decrement(View v) {
-        quantity = quantity - 1;
+        if (quantity > 1)
+            quantity--;
+
+        else
+            Toast.makeText(getApplicationContext(), "SORRY YOU CAN NOT HAVE LESS COFFEE.", Toast.LENGTH_SHORT).show();
         displayQuantity(quantity);
     }
 
-    public void displayQuantity(int number) {
-        TextView displayInteger = findViewById(R.id.quantityNumber);
-        displayInteger.setText(number);
+    public void onCheckboxClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        switch (view.getId()) {
+            case R.id.whippedCream:
+                if (checked) {
+                    whippedCream = true;
+                } else {
+                    whippedCream = false;
+                }
+                break;
+
+            case R.id.chocolate:
+                if (checked) {
+                    chocolate = true;
+                } else {
+                    chocolate = false;
+                }
+                break;
+        }
+    }
+
+    public void addWhippedCream(View v) {
+        quantity--;
+        displayQuantity(quantity);
+    }
+
+    private void displayQuantity(int numberOfCoffees) {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantityNumber);
+        quantityTextView.setText("" + numberOfCoffees);
     }
 
 }
