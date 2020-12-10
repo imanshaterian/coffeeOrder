@@ -5,18 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    //variables:
     int quantity = 1;
     int price = 5;
     String name = "";
-    boolean chocolate = false;
-    boolean whippedCream = false;
-
+    String whippedCram = "NO";
+    String chocolate = "NO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,41 +34,63 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View v) {
         if (quantity > 1)
             quantity--;
-
         else
-            Toast.makeText(getApplicationContext(), "SORRY YOU CAN NOT HAVE LESS COFFEE.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "SORRY YOU CAN'T HAVE LESS :(", Toast.LENGTH_SHORT).show();
         displayQuantity(quantity);
     }
 
-    public void onCheckboxClicked(View view) {
+    public void displayQuantity(int quantity) {
+        TextView quantitydisplay = findViewById(R.id.quantityTextView);
+        String quantityNumber = "" + quantity;
+        quantitydisplay.setText(quantityNumber);
+    }
+
+    public void CheckboxOnClick(View view) {
         boolean checked = ((CheckBox) view).isChecked();
+
         switch (view.getId()) {
-            case R.id.whippedCream:
+            case R.id.whippedCreamCheckBox:
                 if (checked) {
-                    whippedCream = true;
+                    price += 2;
+                    whippedCram = "YES";
                 } else {
-                    whippedCream = false;
+                    price -= 2;
+                    whippedCram = "NO";
                 }
                 break;
 
-            case R.id.chocolate:
+            case R.id.chocolateCheckBox:
                 if (checked) {
-                    chocolate = true;
+                    price += 1;
+                    chocolate = "YES";
                 } else {
-                    chocolate = false;
+                    price -=1;
+                    chocolate = "NO";
                 }
                 break;
         }
     }
 
-    public void addWhippedCream(View v) {
-        quantity--;
-        displayQuantity(quantity);
+
+    public void getName() {
+        EditText getNameId = findViewById(R.id.nameEditText);
+        name = getNameId.getText().toString();
     }
 
-    private void displayQuantity(int numberOfCoffees) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantityNumber);
-        quantityTextView.setText("" + numberOfCoffees);
+    public void displaySummary() {
+        TextView summaryId = findViewById(R.id.summaryTextView);
+        String summary = "Name : " + name +
+                "\nQuantity : " + quantity +
+                "\nWhipped Cream :" + whippedCram +
+                "\nChocolate :" + chocolate +
+                "\nTotal : $" + quantity * price;
+        summaryId.setText(summary);
+    }
+
+    public void submitOrder(View v) {
+        getName();
+        displaySummary();
+
     }
 
 }

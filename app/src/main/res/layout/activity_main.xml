@@ -9,41 +9,39 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="name:"
-            android:textAllCaps="true"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/inputName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:autofillHints="enter your name please :)"
-            android:hint="Please Enter Your Name :)"
+            android:layout_margin="5dp"
+            android:text="name:"
+            android:textAllCaps="true"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:hint="PLEASE ENTER YOUR NAME"
             android:inputType="textPersonName" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10dp"
+            android:layout_height="2dp"
+            android:layout_margin="5dp"
             android:background="?android:attr/textColorPrimary" />
 
         <TextView
-            android:id="@+id/quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:text="quantity:"
             android:textAllCaps="true"
-            android:textSize="20sp" />
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:weightSum="6">
 
             <Button
@@ -51,101 +49,99 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:onClick="decrement"
-                android:text="-"
-                android:textSize="20sp" />
+                android:onClick="increment"
+                android:text="+" />
 
             <TextView
-                android:id="@+id/quantityNumber"
+                android:id="@+id/quantityTextView"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:onClick="decrement"
                 android:text="1"
                 android:textSize="25sp" />
 
             <Button
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="increment"
-                android:text="+"
+                android:onClick="decrement"
+                android:text="-" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="5dp"
+            android:background="?android:attr/textColorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="extras:"
+            android:textAllCaps="true"
+            android:textSize="25sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <CheckBox
+                android:id="@+id/whippedCreamCheckBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="CheckboxOnClick"
+                android:text="Whipped cream"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="?android:attr/textColorPrimary" />
+
+            <CheckBox
+                android:id="@+id/chocolateCheckBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="CheckboxOnClick"
+                android:text="Chocolate"
                 android:textSize="20sp" />
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10dp"
+            android:layout_height="2dp"
+            android:layout_margin="5dp"
             android:background="?android:attr/textColorPrimary" />
 
         <TextView
-            android:id="@+id/extras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="extras:"
-            android:textAllCaps="true"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <CheckBox
-                android:id="@+id/whippedCream"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onCheckboxClicked"
-                android:text="Whipped Cream"
-                android:textSize="15sp" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:background="?android:attr/textColorPrimary" />
-
-            <CheckBox
-                android:id="@+id/chocolate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onCheckboxClicked"
-                android:text="Chocolate"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10dp"
-            android:background="?android:attr/textColorPrimary" />
-
-        <TextView
-            android:id="@+id/summary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:text="summary:"
             android:textAllCaps="true"
-            android:textSize="20sp" />
+            android:textSize="25sp" />
 
         <TextView
+            android:id="@+id/summaryTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:text=""
-            android:textSize="15sp" />
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
 
     </LinearLayout>
 
@@ -153,10 +149,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="center"
+        android:onClick="submitOrder"
         android:text="order"
         android:textAllCaps="true"
-
-        android:textSize="25sp" />
+        android:textSize="30sp" />
 
 </RelativeLayout>
